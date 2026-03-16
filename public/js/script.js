@@ -1,15 +1,17 @@
 // Smooth scroll para links de navegação
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     });
 });
@@ -43,9 +45,12 @@ window.addEventListener('scroll', function() {
     });
     
     document.querySelectorAll('nav a').forEach(link => {
-        link.style.color = '#a0a0a0';
-        if (link.getAttribute('href') === '#' + current) {
-            link.style.color = '#ff006e';
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+            link.style.color = '#a0a0a0';
+            if (href === '#' + current) {
+                link.style.color = '#ff006e';
+            }
         }
     });
 });
@@ -79,7 +84,7 @@ function searchProducts(keyword) {
     return found;
 }
 
-// Função para adicionar ao carrinho (simulado)
+// Função para adicionar ao carrinho
 function addToCart(productName) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push({
@@ -111,25 +116,6 @@ function getStoreStatus() {
 // Exibir status da loja no console
 console.log('%cGameTech - ' + getStoreStatus(), 'color: #00d4ff; font-size: 16px; font-weight: bold;');
 
-// Animar números de preços
-function animatePrice(element) {
-    const price = element.innerText;
-    const match = price.match(/R\$\s*([\d.,]+)/);
-    
-    if (match) {
-        const value = parseFloat(match[1].replace('.', '').replace(',', '.'));
-        let current = 0;
-        const increment = value / 20;
-        const interval = setInterval(() => {
-            current += increment;
-            if (current >= value) {
-                element.innerText = price;
-                clearInterval(interval);
-            }
-        }, 50);
-    }
-}
-
 // Função para mostrar total de categorias
 function getTotalCategories() {
     const categories = document.querySelectorAll('#produtos article').length;
@@ -138,41 +124,6 @@ function getTotalCategories() {
 }
 
 getTotalCategories();
-
-// Função para compartilhar produto (simulado)
-function shareProduct(productName) {
-    const text = `Confira ${productName} na GameTech! 🎮🖥️`;
-    console.log(`Compartilhado: ${text}`);
-    
-    if (navigator.share) {
-        navigator.share({
-            title: 'GameTech',
-            text: text,
-            url: window.location.href
-        });
-    } else {
-        alert(text);
-    }
-}
-
-// Função para listar todos os produtos
-function listAllProducts() {
-    const products = [];
-    document.querySelectorAll('article li').forEach(item => {
-        products.push(item.innerText);
-    });
-    return products;
-}
-
-// Exibir informações de produtos no console
-console.log('%cTotal de produtos disponíveis: ' + listAllProducts().length, 'color: #00d4ff; font-size: 12px;');
-
-// Detectar cliques duplos na página
-let doubleClickCount = 0;
-document.addEventListener('dblclick', function(e) {
-    doubleClickCount++;
-    console.log(`Double-click #${doubleClickCount}`);
-});
 
 // Tecla de atalho para voltar ao topo
 document.addEventListener('keydown', function(e) {
