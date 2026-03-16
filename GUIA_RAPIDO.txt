@@ -1,0 +1,191 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  GameTech - GUIA RÁPIDO DE INSTALAÇÃO                         ║
+║                    Sistema de Login com PHP e MySQL                           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📋 O QUE FOI CRIADO?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ config.php              - Configuração e conexão com banco de dados
+✓ auth.php               - Funções de autenticação e registro
+✓ login.php              - Página de login com validações
+✓ register.php           - Página de registro de novo usuário
+✓ dashboard.php          - Área protegida para usuários logados
+✓ index.php              - Página principal (versão PHP com integração)
+✓ install.php            - Instalador automático do banco de dados
+✓ database.sql           - Script SQL com estrutura do banco
+✓ .htaccess              - Arquivo de segurança e rewrite
+✓ README_LOGIN.md        - Documentação detalhada
+
+
+🚀 COMEÇAR RÁPIDO (3 PASSOS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ INICIAR SERVIDORES
+   □ Abra XAMPP Control Panel (ou seu servidor web)
+   □ Clique em "Start" para Apache e MySQL
+   □ Verifique se estão em verde ✓
+
+2️⃣ INSTALAR BANCO DE DADOS
+   □ Abra o navegador
+   □ Acesse: http://localhost/primeiroSite/install.php
+   □ Clique em "🚀 Instalar Sistema"
+   □ Aguarde a mensagem de sucesso
+
+3️⃣ CRIAR CONTA E TESTAR
+   □ Clique em "📝 Criar Conta"
+   □ Preencha os dados (username, email, senha)
+   □ Clique em "Criar Conta"
+   □ Faça login com as credenciais criadas
+   □ Você entrará no Dashboard!
+
+
+📌 NAVEGAÇÃO DO SISTEMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Visitante
+  ├─→ http://localhost/primeiroSite/index.php (Loja principal)
+  ├─→ [Link "🔐 Login"] → login.php
+  ├─→ [Link "📝 Registrar"] → register.php
+  │    ├─→ Preencher formulário
+  │    └─→ [Botão "Criar Conta"] → Sucesso → login.php
+  └─→ [Em login.php, clicar em "Fazer login"] → dashboard.php
+
+Usuário Logado
+  ├─→ Dashboard (http://localhost/primeiroSite/dashboard.php)
+  ├─→ Ver resumo de conta
+  ├─→ Adicionar produtos ao carrinho
+  ├─→ [Botão "Sair"] → logout → login.php
+  └─→ [Botão "Voltar à loja"] → index.php
+
+
+🔑 CREDENCIAIS DE TESTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Se quiser testar rapidamente, crie uma conta com:
+  
+  Username: testgamer
+  Email:    teste@gametech.com
+  Senha:    Senha123
+
+
+📁 ESTRUTURA DAS PASTAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+primeiroSite/
+  ├── index.php              ← Página principal (novo)
+  ├── index.html             ← Versão estática (sem database)
+  ├── style.css              ← Estilos
+  ├── script.js              ← JavaScript
+  ├── config.php             ← Configuração BD (novo)
+  ├── auth.php               ← Funções autenticação (novo)
+  ├── login.php              ← Login (novo)
+  ├── register.php           ← Registro (novo)
+  ├── dashboard.php          ← Painel do usuário (novo)
+  ├── install.php            ← Instalador (novo)
+  ├── database.sql           ← Script SQL (novo)
+  ├── .htaccess              ← Segurança (novo)
+  └── README_LOGIN.md        ← Documentação completa
+
+
+⚙️ CONFIGURAÇÃO DO BANCO DE DADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Se as credenciais padrão não funcionarem, edite config.php:
+
+  define('DB_HOST', 'localhost');    ← Servidor MySQL
+  define('DB_USER', 'root');         ← Usuário MySQL
+  define('DB_PASS', '');             ← Senha MySQL (mude aqui!)
+  define('DB_NAME', 'gametech');     ← Nome do banco
+
+
+🔐 RECURSOS DE SEGURANÇA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Senhas criptografadas (PHP password_hash)
+✓ Prepared Statements (previne SQL Injection)
+✓ Sanitização de entrada (previne XSS)
+✓ Timeout de sessão (30 minutos de inatividade)
+✓ .htaccess com proteção de arquivos sensíveis
+✓ Validação de email e confirmação de senha
+
+
+❓ PROBLEMAS COMUNS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+P: "Erro de conexão com banco de dados"
+R: 1. Verifique se MySQL está rodando
+   2. Confirme credenciais em config.php
+   3. Execute install.php para criar o banco
+
+P: "Página branca ou sem estilo"
+R: 1. Verifique a extensão do arquivo (use index.php, não index.html)
+   2. Confirme que style.css está na mesma pasta
+   3. Verifique erro no navegador (F12 > Console)
+
+P: "Login não funciona"
+R: 1. Certifique-se de estar usando index.php (não index.html)
+   2. Verifique se as tabelas foram criadas (execute install.php)
+   3. Confirme as credenciais de registro
+
+P: "Não consegui registrar"
+R: 1. Username e email devem ser únicos (primeira vez)
+   2. Senha deve ter no mínimo 6 caracteres
+   3. As senhas devem coincidir
+
+
+📊 FUNCIONALIDADES IMPLEMENTADAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Login:
+  ✓ Validação de credenciais
+  ✓ Proteção de senha
+  ✓ Mensagens de erro personalizadas
+  ✓ Redirecionamento seguro
+
+Registro:
+  ✓ Validação de formulário
+  ✓ Verificação de duplicatas
+  ✓ Confirmação de senha
+  ✓ Requisitos de segurança
+
+Dashboard:
+  ✓ Informações do usuário
+  ✓ Resumo de pedidos
+  ✓ Carrinho de compras (localStorage)
+  ✓ Tabela de produtos
+  ✓ Logout seguro
+
+Segurança:
+  ✓ Proteção de sessão
+  ✓ Timeout automático
+  ✓ Criptografia de dados
+  ✓ Sanitização de entrada
+
+
+🌐 PRÓXIMAS ALTERAÇÕES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Você pode agora:
+  • Editar index.php para usar index.html como interface
+  • Adicionar mais produtos ao banco de dados
+  • Criar página de checkout
+  • Implementar sistema de pagamento
+  • Adicionar carrinho persistente no banco
+  • Criar painel administrativo
+
+
+📞 SUPORTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Para mais informações, consulte:
+  📕 README_LOGIN.md - Documentação completa
+  🎓 Comentários no código
+  📝 console.log() - Verifique o console do navegador (F12)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Desenvolvido para o Alura Front20min - 2026
+
+═══════════════════════════════════════════════════════════════════════════════

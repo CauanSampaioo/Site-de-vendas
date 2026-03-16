@@ -1,0 +1,252 @@
+/* Reset e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #00d4ff;
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px rgba(0, 212, 255, 0.2);
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #a0a0a0;
+}
+
+/* Navegação */
+nav {
+    background-color: #0f1419;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+nav a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff006e;
+    text-shadow: 0 0 10px #ff006e;
+}
+
+/* Main */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Seções */
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    color: #1a1a2e;
+    border-bottom: 3px solid #00d4ff;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    text-transform: uppercase;
+}
+
+#inicio {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+#inicio h2 {
+    color: #00d4ff;
+}
+
+#inicio p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Produtos */
+#produtos {
+    display: grid;
+    gap: 30px;
+}
+
+article {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #00d4ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 212, 255, 0.2);
+}
+
+article h3 {
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #00d4ff;
+    padding-bottom: 8px;
+}
+
+article ul {
+    list-style-position: inside;
+    margin-left: 10px;
+}
+
+article li {
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    font-weight: 500;
+}
+
+article li:last-child {
+    border-bottom: none;
+}
+
+/* Sobre */
+#sobre {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#sobre p {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.05em;
+    line-height: 1.8;
+}
+
+/* Contato */
+#contato {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #00d4ff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 212, 255, 0.1);
+}
+
+#contato h2 {
+    color: #00d4ff;
+    border-bottom-color: #ff006e;
+}
+
+#contato p {
+    margin: 12px 0;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: #0f1419;
+    color: #a0a0a0;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-top: 2px solid #00d4ff;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    article h3 {
+        font-size: 1.2em;
+    }
+
+    main {
+        margin: 20px auto;
+    }
+
+    #produtos {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    nav a {
+        font-size: 0.9em;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    article {
+        padding: 15px;
+    }
+
+    article h3 {
+        font-size: 1.1em;
+    }
+}
